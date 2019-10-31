@@ -5,8 +5,8 @@ def alphas(redshift, alpha_0, alpha_1, z1 = 1):
     """ For a given set of alpha_0, alpha_1 values, return the alpha values for the
     Dirichlet distribution at the given redshift z, evolving from z=0 to z=z1 (z1 = 1 by default)"""
 
-    #shape = (redshift, alpha)
-    return np.array([[np.power(a0, 1-(z/z1)) * np.power(a1, (z/z1)) for a0,a1 in zip(alpha_0, alpha_1)] for z in redshift])
+    dirichlet_alphas = np.array([[np.power(a0, 1-(z/z1)) * np.power(a1, (z/z1)) for a0,a1 in zip(alpha_0, alpha_1)] for z in redshift])
+    return dirichlet_alphas
 
 def f_lambda(alphas, template_file, ext = 1):
     """ For a given set of alpha, return the c_i weighted SED """
